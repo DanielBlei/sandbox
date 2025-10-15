@@ -37,7 +37,6 @@ go run main.go \
 - **Production Error Handling**: Comprehensive error wrapping with context, graceful degradation, and structured logging for observability
 - **Exponential Backoff**: Implements retry logic with jitter to handle transient failures without clashing with other parallel jobs
 
-```
 
 ## Future Improvements
 
@@ -45,4 +44,3 @@ go run main.go \
 - **Metrics Collection**: Request rate, success/failure ratios, and latency percentiles
 - **Extend Input support**: Accept input from file, stdin, or other sources
 - **Add Post Request Support**: Add support for POST requests, to send API requests.
-```
