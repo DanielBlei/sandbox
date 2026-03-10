@@ -85,10 +85,10 @@ func (w *Pool) executeWithRetries(ctx context.Context, job string, jobFunc JobFu
 	var err error
 	for attempt := 1; attempt <= w.Retries; attempt++ {
 		// Add timeout to the context
-		ctx, cancel := context.WithTimeout(ctx, w.Timeout)
-		defer cancel()
+		attemptCtx, cancel := context.WithTimeout(ctx, w.Timeout)
+		err = jobFunc(attemptCtx, job)
+		cancel()
 
-		err = jobFunc(ctx, job)
 		if err == nil {
 			return Result{
 				JobID:    job,
